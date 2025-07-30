@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Chat App</title>
+    <link rel="stylesheet" href="chat application.css">
+</head>
+<body>
+    <!-- Sign In Screen -->
+    <div class="signin-container" id="signinContainer">
+        <h1>🚀 Join the Chat</h1>
+        <p>Enter your details to start chatting</p>
+        
+        <form class="signin-form" id="signinForm">
+            <div class="input-group">
+                <input type="text" class="signin-input" id="usernameInput" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="input-group">
+                <input type="email" class="signin-input" id="emailInput" placeholder="Enter your email" required>
+            </div>
+            
+            <p style="font-size: 14px; color: #718096; margin: 10px 0;">Choose your avatar:</p>
+            <div class="avatar-selection" id="avatarSelection">
+                <div class="avatar-option selected" data-avatar="🧑">🧑</div>
+                <div class="avatar-option" data-avatar="👩">👩</div>
+                <div class="avatar-option" data-avatar="👨">👨</div>
+                <div class="avatar-option" data-avatar="🦸">🦸</div>
+                <div class="avatar-option" data-avatar="🎨">🎨</div>
+                <div class="avatar-option" data-avatar="🚀">🚀</div>
+            </div>
+            
+            <button type="submit" class="signin-button">Start Chatting 💬</button>
+        </form>
+    </div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="header-left">
+                <div class="user-avatar" id="currentUserAvatar">🧑</div>
+                <div>
+                    <div id="currentUsername">User</div>
+                    <div class="online-status">
+                        <span style="color: #4ade80;">●</span> Online
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="header-button" onclick="toggleDarkMode()">🌙</button>
+                <button class="header-button" onclick="clearChat()">🗑️</button>
+                <button class="header-button" onclick="signOut()">🚪 Sign Out</button>
+            </div>
+        </div>
+
+        <div class="messages-container" id="messagesContainer">
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <div class="typing-indicator" id="typingIndicator">
+            <span id="typingUser">Someone</span> is typing
+            <div class="typing-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <div class="file-preview" id="filePreview">
+                <div class="file-preview-icon">📎</div>
+                <div class="file-preview-info">
+                    <div class="file-preview-name" id="fileName"></div>
+                    <div class="file-preview-size" id="fileSize"></div>
+                </div>
+                <button class="file-preview-remove" onclick="removeFile()">×</button>
+            </div>
+            
+            <div class="input-wrapper">
+                <textarea 
+                    class="message-input" 
+                    id="messageInput" 
+                    placeholder="Type your message..."
+                    rows="1"
+                ></textarea>
+                
+                <div class="input-actions">
+                    <button class="input-action-btn" onclick="toggleEmojiPicker()" title="Add emoji">😊</button>
+                    <button class="input-action-btn" onclick="document.getElementById('fileInput').click()" title="Attach file">📎</button>
+                </div>
+                
+                <button class="send-button" id="sendButton">
+                    ➤
+                </button>
+            </div>
+            
+            <input type="file" id="fileInput" class="file-input" accept="image/*,video/*,.pdf,.doc,.docx,.txt">
+            
+            <div class="emoji-picker" id="emojiPicker">
+                <div class="emoji-grid" id="emojiGrid">
+                    <!-- Emojis will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="chat application.js"></script>
+
+</body>
+</html>
+
